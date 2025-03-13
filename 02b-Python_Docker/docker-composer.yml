@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  python-app:
+    container_name: TD02-bis
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app  # Lier le dossier local "./app" à "/app" dans le conteneur
+    stdin_open: true  # Garder le conteneur ouvert pour le terminal
+    tty: true         # Activer le mode terminal
