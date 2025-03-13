@@ -71,3 +71,4 @@ Pour vérifier que l'installation s'est bien passé et que vous êtes prêts à 
 
 Si tout s'est bien passé, vous devriez être dans un environnement Docker avec Python 3.10. Pour le confirmer, faire : `python3 --version`
 
+Maintenant, pour vérifier que vous avez bien toutes les bibliothèques d'installées, une fois dans le conteneur Docker, aller dans le dossier `app` et exécuter avec Python le fichier `test_imports.py`
