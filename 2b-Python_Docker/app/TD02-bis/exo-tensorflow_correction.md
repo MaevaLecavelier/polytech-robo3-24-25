@@ -163,13 +163,44 @@ print("Prédictions :", predicted_classes)
 print("Classes réelles :", true_classes)
 ```
 
+## Étape 8 : Évaluer avec précision, rappel et F1-score
+
+
+Évaluez le modèle avec d'autres métriques comme `precision`, `recall`
+
+### Importer les fonctions nécessaires
+Ajoutez les fonctions suivantes depuis `sklearn.metrics` :
+```python
+from sklearn.metrics import precision_score, recall_score, f1_score, classification_report
+```
+
+### Calculer les métriques
+```python
+# Calculer les métriques
+precision = precision_score(true_classes, predicted_classes, average='weighted')
+recall = recall_score(true_classes, predicted_classes, average='weighted')
+f1 = f1_score(true_classes, predicted_classes, average='weighted')
+
+print(f"Précision : {precision:.4f}")
+print(f"Rappel : {recall:.4f}")
+print(f"F1-score : {f1:.4f}")
+```
+
+> **Note** : La méthode `average='weighted'` calcule une moyenne pondérée par la taille de chaque classe. Vous pouvez également utiliser `average='macro'` (non pondéré) ou `average='micro'` (total des vrais positifs diviseé par le total des prédictions).
+
+### Rapport de classification
+```python
+# Générer un rapport de classification
+report = classification_report(true_classes, predicted_classes, target_names=iris.target_names)
+print(report)
+```
+
 ---
 
 ## Bonus : Améliorations possibles
 - Essayez d'ajouter une deuxième couche cachée.
 - Augmentez/diminuez le nombre de neurones dans la couche cachée.
 - Modifiez le nombre d'époques ou la taille des lots.
-- Évaluez le modèle avec d'autres métriques comme `precision`, `recall` (à suivre)
 
 ---
 
