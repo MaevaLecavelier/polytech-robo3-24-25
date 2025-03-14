@@ -37,5 +37,5 @@ WORKDIR /app
 # Copier les scripts ou fichiers nécessaires (optionnel)
 COPY . /app
 
-# DÃ©finir le point d'entrée par défaut pour le conteneur
+# Définir le point d'entrée par défaut pour le conteneur
 CMD ["/bin/bash"]
