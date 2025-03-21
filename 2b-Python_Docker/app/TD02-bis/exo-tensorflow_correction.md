@@ -48,13 +48,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 
 # Convertir les labels en one-hot encoding
-encoder = OneHotEncoder(sparse=False)
+encoder = OneHotEncoder(sparse_output=False)
 y_one_hot = encoder.fit_transform(y.reshape(-1, 1))
 
 # Diviser les données en ensembles d'entraîment et de test
-X_train, X_test, y_train, y_test = train_test_split(X, y_one_hot, test_size=0.2, random_state=42)
+x_train, x_test, y_train, y_test = train_test_split(x, y_one_hot, test_size=0.2, random_state=42)
 
-print("Dimensions de X_train :", X_train.shape)
+print("Dimensions de x_train :", x_train.shape)
 print("Dimensions de y_train :", y_train.shape)
 ```
 
@@ -121,7 +121,7 @@ L'étape suivante consiste à entraîner le modèle sur les données d'entraîme
 **Code à compléter** :
 ```python
 # Entraîner le modèle
-history = model.fit(X_train, y_train, epochs=50, batch_size=8, validation_split=0.1)
+history = model.fit(x_train, y_train, epochs=50, batch_size=8, validation_split=0.1)
 
 print("Entraîment terminé.")
 ```
@@ -135,7 +135,7 @@ Pour vérifier la performance du modèle, évaluez-le sur l'ensemble de test (`X
 **Code à compléter** :
 ```python
 # Évaluer le modèle
-loss, accuracy = model.evaluate(X_test, y_test)
+loss, accuracy = model.evaluate(x_test, y_test)
 print(f"Perte sur l'ensemble de test : {loss:.4f}")
 print(f"Précision sur l'ensemble de test : {accuracy:.4f}")
 ```
@@ -155,7 +155,7 @@ Utilisez le modèle pour prédire les classes des fleurs dans l'ensemble de test
 import numpy as np
 
 # Faire des prédictions
-predictions = model.predict(X_test)
+predictions = model.predict(x_test)
 predicted_classes = np.argmax(predictions, axis=1)
 true_classes = np.argmax(y_test, axis=1)
 
