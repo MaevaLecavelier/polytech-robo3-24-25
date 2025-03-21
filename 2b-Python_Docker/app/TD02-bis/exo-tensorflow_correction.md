@@ -20,12 +20,12 @@ from sklearn import datasets
 
 # Charger le dataset Iris
 iris = datasets.load_iris()
-X = iris.data  # Caractéristiques (features)
+x = iris.data  # Caractéristiques (features)
 y = iris.target  # Labels (classes)
 
 # Affichez quelques exemples de données
 print("Caractéristiques (X) :")
-print(X[:5])
+print(x[:5])
 print("Labels (y) :")
 print(y[:5])
 ```
